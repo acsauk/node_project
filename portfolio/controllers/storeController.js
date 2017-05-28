@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Store = mongoose.model('Store');
 
 exports.homePage = (req, res) => {
   console.log(req.name);
@@ -10,5 +11,5 @@ exports.addStore = (req, res) => {
 }
 
 exports.createStore = (req, res) => {
-  res.json(req.body);
+  const store = new store(req.body);
 }

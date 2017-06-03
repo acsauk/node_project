@@ -27,6 +27,16 @@ exports.addStore = (req, res) => {
 
 exports.upload = multer(multerOptions).single('photo');
 
+exports.resize = async (req, res, next) => {
+  // Check if no new file to resize
+  if(!req.file) {
+    next(); //Skips to next middleware
+    return;
+  }
+  const extension = req.file.mimetype.split('/')[1];
+  
+}
+
 exports.createStore = async (req, res) => {
   const store = await(new Store(req.body)).save();
   await store.save();

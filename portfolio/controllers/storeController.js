@@ -23,7 +23,7 @@ exports.addStore = (req, res) => {
   res.render('editStore', { title: 'Add Store' });
 };
 
-
+exports.upload = multer(multerOptions).single('photo');
 
 exports.createStore = async (req, res) => {
   const store = await(new Store(req.body)).save();

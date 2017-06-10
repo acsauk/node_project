@@ -3,3 +3,10 @@ extends layout
 block content
   .inner
     h2= title
+    ul.tags
+      each t in tags
+        li.tags
+          a.tag__link(href=`/tags/${t._id}`)
+            span.tag__text= t._id
+            span.tag__count= t.count
+            
